@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int i,j;
+    int i, j;
     char D[5][5] = {
         {'1', '2', '3', '4', '5'},
         {'7', 'a', 'c', '8', 'd'},
@@ -9,17 +9,43 @@ int main() {
         {'5', '6', 'p', 'n', '3'},
         {'2', '9', 't', 'm', 'k'}        
     };
-سؤال الاول//
-    for ( i = 0; i < 5; i++) {
-        for ( j = 0; j < 5; j++) {
-            printf("%c ", matrix[i][j]);
-            printf("\n");
+    // first q
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            printf("%c ", D[i][j]);
         }
+        printf("\n");
     }
-//سؤال الثاني
-
+  printf("\n");
+  //the second q
+    for (i = 0; i < 5; i += 2) {
+        for (j = 0; j < 5; j++) {
+            printf("%c ", D[i][j]);
+        }
+        printf("\n");
+    }
+    //the therd q
+ for (i = 0; i < 5; i += 2) {
+        for (j = 0; j < 5; j=+2) {
+            printf("%c ", D[i][j]);
+        }
+        printf("\n");
+    }
+    /////////////////////////////////
+    printf("affiche le diagonal:\n");
+    for ( i = 0; i < 5; i++) {
+        printf("%c ", D[i][i]); 
+    }
+    printf("\n");
+/////////////////
+printf("affiche le dexiem diagonal:\n");
+    for ( i = 0; i < 5; i++) {
+        printf("%c ", D[i][5 - i - 1]);
+    }
+    printf("\n");
     return 0;
 }
+   
 
 
 
