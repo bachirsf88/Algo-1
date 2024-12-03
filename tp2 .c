@@ -64,18 +64,20 @@ int main() {
       
         char Tab[N + 1];
         ChargerTab(chaine, Tab);
-        
+         
+         int s =Longueur(Tab);
         
         printf("Le tableau contient : ");
-        AfficherTab(Tab, Longueur(Tab));
+        AfficherTab(Tab,s );
         
        
         char T[N + 1];
-        InverserTab(Tab, T, Longueur(Tab));
+        InverserTab(Tab, T, s);
         
+        int j=Longueur(T);
         
         printf("Le tableau inversé est : ");
-        AfficherTab(T, Longueur(T));
+        AfficherTab(T,j);
         
         
 
