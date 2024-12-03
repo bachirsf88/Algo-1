@@ -7,12 +7,7 @@ char *ChargerChaine(int N) {
     char *chaine = (char *)malloc((N + 1) * sizeof(char));
     printf("Entrez la chaine de caracter ne deppasser pas la taille maximal %d : ", N);
     fgets(chaine, N + 1, stdin); 
- //  for (int i = 0; chaine[i] != '\0'; i++) {
-//         if (chaine[i] == '\n') {
-//             chaine[i] = '\0';
-//             break;
-//         }
-//     }
+
     return chaine;
 }
 // سؤال الثاني 
