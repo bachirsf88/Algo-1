@@ -1,22 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Définition de la structure de la liste simplement chaînée
 typedef struct element {
     int val;
     struct element *suivant;
 } element;
-
-// Fonction pour créer une liste vide
+// انشاء سلسلة فارغة 
 element* creerListe() {
-    return NULL; // Une liste vide est représentée par NULL
+    return NULL; 
 }
 
-// Fonction pour charger une liste à partir d'un tableau
+// تحويل قيم الجدول الي سلسلة
 element* chargerListe(int Tab[], int taille, element* liste) {
     for (int i = 0; i < taille; i++) {
         element* nouveau = (element*)malloc(sizeof(element));
-       
         nouveau->val = Tab[i];
         nouveau->suivant = liste;
         liste = nouveau;
@@ -24,49 +21,42 @@ element* chargerListe(int Tab[], int taille, element* liste) {
     return liste;
 }
 
-// Fonction pour afficher les éléments d'une liste
+// اضهار عناصر السلسلة 
 void afficherListe(element* L) {
-    element* courant = L;
-    while (courant != NULL) {
-        printf("%d -> ", courant->val);
-        courant = courant->suivant;
+    element* p1 = L;
+    while (p1 != NULL) {
+        printf("%d -> ", p1->val);
+        p1 = p1->suivant;
     }
     printf("NULL\n");
 }
 
-// Fonction pour supprimer un élément en fin de liste
+// حذف عنصر اخير في السلسلة
 element* supprimerEnFin(element* L) {
-    if (L == NULL) return NULL; // Liste vide
-    if (L->suivant == NULL) { // Un seul élément
-        free(L);
-        return NULL;
+    element* p2 = L;
+    while (p2->suivant->suivant != NULL) {
+        p2 = p2->suivant;
     }
-
-    element* courant = L;
-    while (courant->suivant->suivant != NULL) {
-        courant = courant->suivant;
-    }
-    free(courant->suivant);
-    courant->suivant = NULL;
+    free(p2->suivant);
+    p2->suivant = NULL;
     return L;
 }
 
-// Fonction pour ajouter un élément au début de la liste
+// زيادة عنصر في بداية السلسلة 
 element* ajouterEnDebut(element* L, int valeur) {
     element* nouveau = (element*)malloc(sizeof(element));
-  
     nouveau->val = valeur;
     nouveau->suivant = L;
     return nouveau;
 }
 
-// Fonction pour vider complètement une liste
+// افراغ عناصر سلسلة 
 void viderListe(element* L) {
-    element* courant;
+    element* p3;
     while (L != NULL) {
-        courant = L;
+        p3 = L;
         L = L->suivant;
-        free(courant);
+        free(p3);
     }
     printf("La liste est vide.\n");
 }
